@@ -16,7 +16,7 @@ pipeline {
         }
         stage('git') {
             steps {
-                git 'https://github.com/rbnaiduGit/spring-mvc-example.git'
+                git 'https://github.com/rbnaiduGit/microservices-springboot.git'
             }
         }
         stage('test sh') {
@@ -34,16 +34,6 @@ pipeline {
 
             }
         }
-        stage('deploy') {
-           // input {
-                  // mesage "Prod deployement started"
-                   // ok "should we start"
-               // }
-            steps {
-                               
-              deploy adapters: [tomcat8(credentialsId: 'tomcat1', path: '', url: 'http://localhost:8080')], contextPath: '/app', war: '**/*.war'
-               
-            }
-        }
+        
     }
 }
